@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <style>
+        .gs{
+            color: orange;
+        }
+        .ty{
+            font-style: italic;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1> {{ name }}</h1>
+      <h1> {{ MyName(19) }}</h1>
+      <a v-bind:href="address">VueJS</a>
+      <h1 :class="classes">maşınlar</h1>
+      <input type="text" name="" id="" v-bind:value="name"> 
+      <h1>{{ dollar }}</h1>
+      <button v-on:click="dollar++">Artir</button>
+      <button v-on:click="Amount(-1)">Azalt</button>
+      <button @click="dollar=0">Sifirla</button>
+    </div>
+  </body>
+  <script>
+      let App = new Vue({
+    el:'#app',
+    data:{
+        name: "10 TY 510",
+        address: 'https://vuejs.org',
+        classes: ['gs','ty'],
+        dollar: 100,
+    },
+    methods:{
+        MyName(age){
+            return ` ${this.name} My age is ${age} `
+        },
+        Amount(pul){
+            this.dollar += pul
+        },
+    }
+});
+  </script>
+</html>
